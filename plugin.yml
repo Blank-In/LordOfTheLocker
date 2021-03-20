@@ -1,0 +1,62 @@
+main: com.gmail.ksw26141.LordOfTheLocker
+name: LordOfTheLocker
+version: 1.20200809
+author: Blank_In
+website: https://blog.naver.com/ksw87581
+prefix: LordOfTheLocker
+api-version: 1.13
+commands:
+  보관함:
+    description: 보관함을 여는 명령어.
+    permission: LordOfTheLocker.user.보관함
+    permission-message: 유저 전용 명령어입니다.
+    usage: /<command>
+  locker:
+    description: 보관함을 여는 명령어.
+    permission: LordOfTheLocker.user.locker
+    permission-message: 유저 전용 명령어입니다.
+    usage: /<command>
+  givetolocker:
+    description: 보관함에 아이템을 제공하는 명령어.
+    permission: LordOfTheLocker.op.givetolocker
+    permission-message: 관리자 전용 명령어입니다.
+    usage: /<command>, /<command> <username>
+  lockersave:
+    description: 보관함의 내용물을 저장합니다.
+    permission: LordOfTheLocker.op.lockersave
+    permission-message: 관리자 전용 명령어입니다.
+    usage: /<command>
+  lockerautosave:
+    description: 보관함 자동저장을 설정합니다.
+    permission: LordOfTheLocker.op.lockerautosave
+    permission-message: 관리자 전용 명령어입니다.
+    usage: /<command>, /<command> <on|off|true|false>
+  lockerautomessage:
+    description: 보관함 수령알림을 설정합니다.
+    permission: LordOfTheLocker.op.lockerautomessage
+    permission-message: 관리자 전용 명령어입니다.
+    usage: /<command>, /<command> <on|off|true|false>
+  lockerautotime:
+    description: 보관함 자동시스템 간격을 설정합니다.
+    permission: LordOfTheLocker.op.lockerautotime
+    permission-message: 관리자 전용 명령어입니다.
+    usage: /<command>, /<command> <minute>
+  
+
+permissions:
+  LordOfTheLocker.op.*:
+    description: 관리자 전용 명령어 모음
+    default: op
+    children:
+      LordOfTheLocker.op.givetolocker: true
+      LordOfTheLocker.op.lockersave: true
+      LordOfTheLocker.op.lockerautosave: true
+      LordOfTheLocker.op.lockerautomessage: true
+      LordOfTheLocker.op.lockerautotime: true
+
+  LordOfTheLocker.user.*:
+    description: 유저 전용 명령어 모음
+    default:
+    children:
+      LordOfTheLocker.user.locker: true
+      LordOfTheLocker.user.보관함: true
